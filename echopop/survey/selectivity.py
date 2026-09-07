@@ -176,9 +176,7 @@ def assign_selectivity_expansion(
         )
 
     # Compute retention probability S(L)
-    selectivity = 1.0 / (
-            1.0 + np.exp(_K * (biodata["l50"] - biodata["length"]) / biodata["sr"])
-    )
+    selectivity = 1.0 / (1.0 + np.exp(_K * (biodata["l50"] - biodata["length"]) / biodata["sr"]))
 
     # Apply lower bound threshold to avoid division by zero
     bounded_selectivity = np.maximum(selectivity, minimum_selectivity)
